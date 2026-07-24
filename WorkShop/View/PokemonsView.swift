@@ -2,9 +2,9 @@ import SwiftUI
 import Nuvem
 
 struct PokemonsView: View {
-    @State private var addPokemon: Bool = false
     @Bindable var trainer: Trainer.Observable
-    @State var pokemons: [Pokemon.Observable] = []
+    
+    @State private var addPokemon: Bool = false
     @State private var pokemonEdit: Pokemon.Observable?
     
     var body: some View {

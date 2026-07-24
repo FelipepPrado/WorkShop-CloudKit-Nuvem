@@ -14,14 +14,12 @@ struct AddTrainerView: View {
                 Section("Name"){
                     TextField("Type the trainer name", text: $name)
                 }
-                Section("Age"){
-                    DatePicker(
-                        "Birth date",
-                        selection: $age,
-                        in: ...Date.now,
-                        displayedComponents: .date,
-                    )
-                }
+                DatePicker(
+                    "Birth date",
+                    selection: $age,
+                    in: ...Date.now,
+                    displayedComponents: .date,
+                )
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction){
@@ -56,7 +54,3 @@ struct AddTrainerView: View {
         }
     }
 }
-
-//#Preview {
-//    AddListView()
-//}

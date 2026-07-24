@@ -62,7 +62,3 @@ struct AddPokemonView: View {
         }
     }
 }
-
-//#Preview {
-//    AddItemView()
-//}

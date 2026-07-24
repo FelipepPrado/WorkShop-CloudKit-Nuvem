@@ -47,7 +47,6 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.large)
         }
         .task{
-            print("tentando")
             fetchTrainers()
         }
     }
