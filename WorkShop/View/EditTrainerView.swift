@@ -6,7 +6,7 @@ struct EditTrainerView: View {
     @Bindable var trainer: Trainer.Observable
     
     @State private var name: String = ""
-    @State private var age: Date = Date.now
+    @State private var age: String = ""
     
     var body: some View {
         NavigationStack{
@@ -15,12 +15,8 @@ struct EditTrainerView: View {
                     TextField("Type the trainer name", text: $name)
                 }
                 Section("Age"){
-                    DatePicker(
-                        "Birth date",
-                        selection: $age,
-                        in: ...Date.now,
-                        displayedComponents: .date,
-                    )
+                    TextField("Type the trainer age", text: $age)
+                        .keyboardType(.numberPad)
                 }
             }
             .toolbar {
@@ -33,7 +29,7 @@ struct EditTrainerView: View {
                     Button(role: .confirm) {
                         updateTrainer()
                     }
-                    .disabled(name.isEmpty || (name == trainer.name && age == trainer.age))
+                    .disabled(name.isEmpty || (name == trainer.name && Int(age) ?? 0 == trainer.age))
                 }
             }
             .navigationTitle("Edit Trainer")
@@ -41,14 +37,14 @@ struct EditTrainerView: View {
         }
         .onAppear {
             name = trainer.name
-            age = trainer.age
+            age = String(trainer.age)
         }
     }
     
     func updateTrainer() {
         Task{
             trainer.name = name
-            trainer.age = age
+            trainer.age = Int(age) ?? 0
             
             do{
                 try await trainer.save(on: .private)   

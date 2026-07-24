@@ -48,7 +48,6 @@ struct PokemonsView: View {
             ToolbarItem(placement: .navigationBarTrailing){
                 Button("Add Pokémon", systemImage: "plus"){
                     addPokemon.toggle()
-                    print(trainer.pokemons)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.blue)

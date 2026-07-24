@@ -60,7 +60,6 @@ struct ContentView: View {
                     .map(\.observable)
             } catch{
                 print(error)
-                print("Dando erro no fetch")
             }
         }
     }
