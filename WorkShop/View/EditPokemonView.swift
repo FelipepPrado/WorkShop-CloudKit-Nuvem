@@ -49,7 +49,7 @@ struct EditPokemonView: View {
     
     func updatePokemon() {
         Task{
-            var editPokemon = pokemon
+            let editPokemon = pokemon
             editPokemon.name = name
             editPokemon.type = type
             
@@ -59,7 +59,6 @@ struct EditPokemonView: View {
                 if let index = trainer.pokemons.firstIndex(where: { $0.id == editPokemon.id }) {
                     trainer.pokemons[index] = editPokemon.model
                 }
-                
             } catch{
                 print(error)
             }

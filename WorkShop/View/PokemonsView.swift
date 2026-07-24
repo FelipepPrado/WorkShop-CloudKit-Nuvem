@@ -62,7 +62,7 @@ struct PokemonsView: View {
         Task{
             do {
                 try await pokemon.delete(on: .private)
-                pokemons.removeAll(where: { $0.id == pokemon.id })
+                trainer.pokemons.removeAll(where: { $0.id == pokemon.id })
             } catch{
                 print(error)
             }
