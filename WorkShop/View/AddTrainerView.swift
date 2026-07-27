@@ -46,6 +46,7 @@ struct AddTrainerView: View {
                 
                 //Ele só adicionar um elemento novo, se conseguir salvar o elemento no CloudKit
                 trainers.append(newTrainer.observable)
+                trainers =  trainers.sorted(by: { $0.name < $1.name })
             } catch{
                 print(error)
             }
