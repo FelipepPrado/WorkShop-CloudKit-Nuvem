@@ -55,9 +55,11 @@ struct ContentView: View {
         Task{
             do {
                 trainers = try await Trainer.query(on: .private)
+                    .sort(\.$name, order: .ascending)
                     .with(\.$pokemons)
                     .all()
                     .map(\.observable)
+                
             } catch{
                 print(error)
             }
