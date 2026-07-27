@@ -71,7 +71,6 @@ struct ContentView: View {
                 fetchTrainers()
             } catch{
                 print(error)
-                
             }
         }
     }
