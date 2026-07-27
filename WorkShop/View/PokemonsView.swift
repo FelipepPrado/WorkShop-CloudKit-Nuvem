@@ -13,7 +13,7 @@ struct PokemonsView: View {
                 HStack{
                     VStack(alignment: .leading){
                         Text("\(pokemon.name)")
-                        Text("\(pokemon.type)")
+                        Image(pokemon.type)
                     }
                     
                     Spacer()
